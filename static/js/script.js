@@ -2,6 +2,10 @@ $(document).ready(function() {
     // Handle form submission
     $('#calorie-form').on('submit', function(event) {
         event.preventDefault();
+        
+        // Show the loading animation
+        $('#loading').show();
+        
         let formData = new FormData(this);
         $.ajax({
             type: 'POST',
@@ -10,6 +14,9 @@ $(document).ready(function() {
             processData: false,
             contentType: false,
             success: function(response) {
+                // Hide the loading animation
+                $('#loading').hide();
+                
                 // Display the response in the result div
                 let resultHtml = `<h4>Reasoning: ${response.reasoning}</h4><ul>`;
                 response.food_items.forEach(item => {
@@ -19,6 +26,9 @@ $(document).ready(function() {
                 $('#result').html(resultHtml);
             },
             error: function(response) {
+                // Hide the loading animation
+                $('#loading').hide();
+                
                 // Display error message in the result div
                 $('#result').html(`<h4>Error: ${response.responseJSON.error}</h4>`);
             }
