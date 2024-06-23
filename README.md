@@ -25,4 +25,4 @@ cd calories-counter
     OPENAI_API_KEY=your-api-key-here
 	
 # Usage
-    python main.py path_to_your_image_file
+    python app.py
