@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="content">
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Welcome to Calorie Counter</h1>
+        <p class="lead">Upload an image of your meal and get the calorie count instantly!</p>
+        <hr class="my-4">
+        <form id="calorie-form" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="file" class="form-control-file" id="file" name="file">
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+        <div id="result" class="mt-4"></div>
+    </div>
+</div>
+{% endblock %}
